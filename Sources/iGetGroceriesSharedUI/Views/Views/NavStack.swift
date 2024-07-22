@@ -23,7 +23,7 @@ public struct NavStack<Content: View>: View {
     
     public var body: some View {
         NnSwiftUIKit.NavStack(path: path, title: title, displayMode: displayMode, content: content)
-//            .applyNavigationBarStyle()
+            .applyNavigationBarStyle()
             .tint(.white)
     }
 }
@@ -45,7 +45,7 @@ public struct CustomPathNavStack<Data, Content: View>: View where Data: MutableC
     
     public var body: some View {
         NnSwiftUIKit.CustomPathNavStack(path: $path, title: title, displayMode: displayMode, content: content)
-//            .applyNavigationBarStyle()
+            .applyNavigationBarStyle()
             .tint(.white)
     }
 }

@@ -1,5 +1,5 @@
 //
-//  File.swift
+//  Color+Extensions.swift
 //  
 //
 //  Created by Nikolai Nobadi on 7/21/24.

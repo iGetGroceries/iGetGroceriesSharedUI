@@ -5,18 +5,26 @@ import PackageDescription
 
 let package = Package(
     name: "iGetGroceriesSharedUI",
+    platforms: [
+        .iOS(.v17)
+    ],
     products: [
         .library(
             name: "iGetGroceriesSharedUI",
-            targets: ["iGetGroceriesSharedUI"]
-        ),
+//            type: .dynamic,
+            targets: ["iGetGroceriesSharedUI"]),
     ],
     dependencies: [
+        .package(url: "https://github.com/nikolainobadi/NnSwiftUIKit", branch: "main")
     ],
     targets: [
         .target(
             name: "iGetGroceriesSharedUI",
             dependencies: [
+                "NnSwiftUIKit"
+            ],
+            resources: [
+                .process("Resources/SharedUI.xcassets")
             ]
         ),
     ]

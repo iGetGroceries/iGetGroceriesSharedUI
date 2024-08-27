@@ -21,7 +21,7 @@ struct EmptyListViewModifier: ViewModifier {
                     .withFont(.headline)
                 Text(listType.message)
                     .multilineTextAlignment(.center)
-                    .withFont(isDetail: true, autoSizeLineLimit: 1)
+                    .withFont(isDetail: true, autoSizeLineLimit: 2)
                 
                 Spacer()
             }

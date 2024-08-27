@@ -17,10 +17,10 @@ public struct SearchBarView: View {
         searchText = ""
     }
     
-    public init(searchText: Binding<String>, isSearching: FocusState<Bool>, prompt: String) {
+    public init(_ prompt: String, searchText: Binding<String>, isSearching: FocusState<Bool>) {
+        self.prompt = prompt
         self._searchText = searchText
         self._isSearching = isSearching
-        self.prompt = prompt
     }
     
     public var body: some View {

@@ -22,8 +22,6 @@ public struct GroceryButtonStyle: ButtonStyle {
             .shadow(color: .black, radius: 4, x: 2, y: 2)
             .scaleEffect(configuration.isPressed ? 0.95 : 1.0)
             .opacity(configuration.isPressed ? 0.7 : 1.0)
-            .disabled(disabled)
-            .opacity(disabled ? 0.5 : 1)
     }
 }
 

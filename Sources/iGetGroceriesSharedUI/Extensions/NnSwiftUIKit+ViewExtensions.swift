@@ -9,6 +9,10 @@ import SwiftUI
 import NnSwiftUIKit
 
 public extension View {
+    var isSmallPhone: Bool {
+        return UIScreen.main.bounds.size.height < 650.0
+    }
+    
     var screenWidth: CGFloat {
         #if canImport(UIKit)
         return UIScreen.main.bounds.size.width

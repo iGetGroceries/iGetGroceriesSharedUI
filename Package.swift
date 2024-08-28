@@ -6,7 +6,7 @@ import PackageDescription
 let package = Package(
     name: "iGetGroceriesSharedUI",
     platforms: [
-        .iOS(.v17)
+        .iOS(.v17), .macOS(.v13)
     ],
     products: [
         .library(

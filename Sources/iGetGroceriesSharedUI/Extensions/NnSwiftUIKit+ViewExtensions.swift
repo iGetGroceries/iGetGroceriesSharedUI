@@ -9,9 +9,11 @@ import SwiftUI
 import NnSwiftUIKit
 
 public extension View {
+    #if canImport(UIKit)
     var isSmallPhone: Bool {
         return UIScreen.main.bounds.size.height < 650.0
     }
+    #endif
     
     var screenWidth: CGFloat {
         #if canImport(UIKit)
@@ -232,13 +234,11 @@ public extension View {
         nnShowcased(title, order: order, cornerRadius: cornerRadius, style: style, scale: scale)
     }
 }
-#endif
-
-public protocol DisplayableError: NnDisplayableError {}
 
 public enum PanGestureSwipeDirection {
     case up, down
 }
+
 
 extension NnSwiftUIKit.PanGestureSwipDirection {
     func toDirection() -> PanGestureSwipeDirection {
@@ -250,3 +250,6 @@ extension NnSwiftUIKit.PanGestureSwipDirection {
         }
     }
 }
+#endif
+
+public protocol DisplayableError: NnDisplayableError {}

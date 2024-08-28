@@ -35,6 +35,6 @@ struct CircleAddButtonViewModifier: ViewModifier {
 
 public extension View {
     func withCircleAddButton(isShowing: Binding<Bool>, action: @escaping () throws -> Void) -> some View {
-        modifier(CircleAddButtonViewModifier(isShowing: isShowing, buttonSize: getHeightPercent(isSmallPhone ? 8 : 6), action: action))
+        modifier(CircleAddButtonViewModifier(isShowing: isShowing, buttonSize: getHeightPercent(8), action: action))
     }
 }

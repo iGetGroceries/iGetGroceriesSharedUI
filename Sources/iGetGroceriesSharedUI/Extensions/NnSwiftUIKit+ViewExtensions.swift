@@ -202,8 +202,8 @@ public extension View {
         nnOnShake(isActive: isActive, action: action)
     }
 
-    func handlingVerticalPanGesture(handleSwipeDirection: @escaping (PanGestureSwipDirection) -> Void) -> some View {
-        nnHandlingVerticalPanGesture(handleSwipeDirection: handleSwipeDirection)
+    func handlingVerticalPanGesture(handleSwipeDirection: @escaping (PanGestureSwipeDirection) -> Void) -> some View {
+        nnHandlingVerticalPanGesture(handleSwipeDirection: { handleSwipeDirection($0.toDirection()) })
     }
 
     func framePercent(widthPercent: CGFloat, heighPercent: CGFloat, alignment: Alignment = .center) -> some View {
@@ -235,3 +235,18 @@ public extension View {
 #endif
 
 public protocol DisplayableError: NnDisplayableError {}
+
+public enum PanGestureSwipeDirection {
+    case up, down
+}
+
+extension NnSwiftUIKit.PanGestureSwipDirection {
+    func toDirection() -> PanGestureSwipeDirection {
+        switch self {
+        case .up:
+            return .up
+        case .down:
+            return .down
+        }
+    }
+}

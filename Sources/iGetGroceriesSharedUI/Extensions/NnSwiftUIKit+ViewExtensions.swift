@@ -208,8 +208,8 @@ public extension View {
         nnHandlingVerticalPanGesture(handleSwipeDirection: { handleSwipeDirection($0.toDirection()) })
     }
 
-    func framePercent(widthPercent: CGFloat, heighPercent: CGFloat, alignment: Alignment = .center) -> some View {
-        nnFramePercent(widthPercent: widthPercent, heighPercent: heighPercent, alignment: alignment)
+    func withDiscardChangesDismissButton<Item: Equatable>(itemToModify: Item, accessibilityId: String? = nil, dismissButtonInfo: AccessibleItemInfo? = nil) -> some View {
+        nnWithDiscardChangesNavBarDismissButton(itemToModify: itemToModify, accessibilityId: accessibilityId, dismissButtonInfo: dismissButtonInfo?.toNnInfo())
     }
 }
 
@@ -232,6 +232,12 @@ public extension View {
 
     func showcased(_ title: String, order: Int, cornerRadius: CGFloat, style: RoundedCornerStyle = .continuous, scale: CGFloat = 1) -> some View {
         nnShowcased(title, order: order, cornerRadius: cornerRadius, style: style, scale: scale)
+    }
+}
+
+extension AccessibleItemInfo {
+    func toNnInfo() -> NnSwiftUIKit.AccessibleItemInfo {
+        return .init(prompt: prompt, accessibilityId: accessibilityId)
     }
 }
 

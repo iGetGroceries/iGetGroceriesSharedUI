@@ -13,7 +13,7 @@ public extension Image {
     static var moveFridge: Image { return makeMascotImage(.moveFridge) }
 }
 
-extension Image {
+public extension Image {
     static func makeMascotImage(_ mascot: MascotImage) -> Image {
         return Image(mascot.rawValue, bundle: .module, label: Text(mascot.accessibilityLabel))
     }
@@ -25,7 +25,7 @@ extension Image {
 
 
 // MARK: - Dependencies
-enum MascotImage: String {
+public enum MascotImage: String {
     case openFridge, moveFridge, fishRun
     
     var accessibilityLabel: String {

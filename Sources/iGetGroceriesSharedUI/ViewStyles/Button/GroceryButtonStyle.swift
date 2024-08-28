@@ -10,14 +10,14 @@ import SwiftUI
 public struct GroceryButtonStyle: ButtonStyle {
     let style: Font.TextStyle
     let textColor: Color
-    let disabled: Bool
+    let tint: Color
     
     public func makeBody(configuration: Configuration) -> some View {
         configuration.label
             .padding(5)
             .frame(maxWidth: .infinity)
             .withFont(style, textColor: textColor, autoSizeLineLimit: 1)
-            .background(Color.darkGreen)
+            .background(tint)
             .cornerRadius(8)
             .shadow(color: .black, radius: 4, x: 2, y: 2)
             .scaleEffect(configuration.isPressed ? 0.95 : 1.0)
@@ -26,7 +26,7 @@ public struct GroceryButtonStyle: ButtonStyle {
 }
 
 public extension ButtonStyle where Self == GroceryButtonStyle {
-    static func groceryButtonStyle(_ style: Font.TextStyle = .body, textColor: Color = .white, disabled: Bool = false) -> GroceryButtonStyle {
-        return .init(style: style, textColor: textColor, disabled: disabled)
+    static func groceryButtonStyle(_ style: Font.TextStyle = .body, textColor: Color = .white, tint: Color = .darkGreen) -> GroceryButtonStyle {
+        return .init(style: style, textColor: textColor, tint: tint)
     }
 }

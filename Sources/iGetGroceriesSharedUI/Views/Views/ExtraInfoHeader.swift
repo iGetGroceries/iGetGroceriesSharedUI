@@ -7,10 +7,14 @@
 
 import SwiftUI
 
-struct ExtraInfoHeader: View {
+public struct ExtraInfoHeader: View {
     let title: String
     
-    var body: some View {
+    public init(_ title: String) {
+        self.title = title
+    }
+    
+    public var body: some View {
         Text(title)
             .withFont(.caption, textColor: .white)
             .frame(maxWidth: .infinity, alignment: .leading)

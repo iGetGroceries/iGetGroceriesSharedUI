@@ -27,5 +27,6 @@ public struct GenericInfoView<Header: View, Info: View>: View {
                 .background(Color.secondaryBackground)
         }
         .clipShape(RoundedRectangle(cornerRadius: 10))
+        .withRoundedShadowBorder()
     }
 }

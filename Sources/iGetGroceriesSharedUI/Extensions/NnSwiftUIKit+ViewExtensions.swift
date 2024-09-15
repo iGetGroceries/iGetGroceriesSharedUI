@@ -9,26 +9,16 @@ import SwiftUI
 import NnSwiftUIKit
 
 public extension View {
-    #if canImport(UIKit)
     var isSmallPhone: Bool {
         return UIScreen.main.bounds.size.height < 650.0
     }
-    #endif
     
     var screenWidth: CGFloat {
-        #if canImport(UIKit)
         return UIScreen.main.bounds.size.width
-        #elseif canImport(AppKit)
-        return NSScreen.main?.frame.size.width ?? 0
-        #endif
     }
 
     var screenHeight: CGFloat {
-        #if canImport(UIKit)
         return UIScreen.main.bounds.size.height
-        #elseif canImport(AppKit)
-        return NSScreen.main?.frame.size.height ?? 0
-        #endif
     }
 
     func getWidthPercent(_ percent: CGFloat) -> CGFloat {
@@ -77,12 +67,7 @@ public extension View {
     func asyncTapGesture(asRowItem: NnAsyncTapRowItem? = nil, action: @escaping () async throws -> Void) -> some View {
         nnAsyncTapGesture(asRowItem: asRowItem, action: action)
     }
-}
-
-
-// MARK: - iOS 15+ Error Handling
-@available(iOS 15.0, *)
-public extension View {
+    
     func asyncConfirmation(_ message: String, showingConfirmation: Binding<Bool>, role: ButtonRole? = nil, buttonInfo: AccessibleItemInfo, action: @escaping () async throws -> Void) -> some View {
         nnAsyncConfirmation(showingConfirmation: showingConfirmation, role: role, buttonInfo: buttonInfo, message: message, action: action)
     }
@@ -110,12 +95,7 @@ public extension View {
     func withNavTitle(title: String?) -> some View {
         nnWithNavTitle(title: title)
     }
-}
 
-
-// MARK: - iOS 16+ Conditionals
-@available(iOS 16.0, *)
-public extension View {
     func asNavLink<D: Hashable>(_ data: D, isActive: Bool = true) -> some View {
         nnAsNavLink(data, isActive: isActive)
     }
@@ -161,7 +141,6 @@ public extension View {
         nnSetAccessibiltyId(id)
     }
 
-    @available(iOS 15.0, *)
     func withSwipeAction(info: AccessibleItemInfo, systemImage: String? = nil, tint: Color, edge: HorizontalEdge? = nil, isActive: Bool = true, action: @escaping () -> Void) -> some View {
         nnWithSwipeAction(info: info, systemImage: systemImage, tint: tint, edge: edge, isActive: isActive, action: action)
     }
@@ -173,7 +152,6 @@ public extension View {
 
 
 // MARK: - Alerts
-@available(iOS 15.0, *)
 public extension View {
     func asyncAlert<AlertView: View>(_ message: String, isPresented: Binding<Bool>, buttonInfo: AccessibleItemInfo? = nil, cancelInfo: AccessibleItemInfo? = nil, action: @escaping () async throws -> Void, cancelAction: @escaping () -> Void = { }, @ViewBuilder alertView: @escaping () -> AlertView) -> some View {
         nnAsyncAlert(message, isPresented: isPresented, buttonInfo: buttonInfo, cancelInfo: cancelInfo, action: action, cancelAction: cancelAction, alertView: alertView)
@@ -190,7 +168,6 @@ public extension View {
 
 
 // MARK: - Showcase
-@available(iOS 16.4, *)
 public extension View {
     func showingAlert(_ title: String, message: String, buttonText: String = "Okay", isPresented: Binding<Bool>, finished: (() -> Void)? = nil) -> some View {
         nnShowingAlert(title, message: message, buttonText: buttonText, isPresented: isPresented, finished: finished)
@@ -198,7 +175,6 @@ public extension View {
 }
 
 
-#if canImport(UIKit)
 public extension View {
     func onShake(isActive: Bool, action: @escaping () -> Void) -> some View {
         nnOnShake(isActive: isActive, action: action)
@@ -213,7 +189,6 @@ public extension View {
     }
 }
 
-@available(iOS 15.0, *)
 public extension View {
     func withNavBarDismissButton(isActive: Bool = true, placement: ToolbarItemPlacement? = nil, textColor: Color = .white, dismissType: NavBarDismissType = .xmark, accessibilityId: String? = nil, dismiss: (() -> Void)? = nil) -> some View {
         nnWithNavBarDismissButton(isActive: isActive, placement: placement, textColor: textColor, dismissType: dismissType, accessibilityId: accessibilityId, dismiss: dismiss)
@@ -224,7 +199,6 @@ public extension View {
     }
 }
 
-@available(iOS 16.4, *)
 public extension View {
     func canShowcaseViews(showHighlights: Bool, onFinished: @escaping () -> Void) -> some View {
         nnCanShowcaseViews(showHighlights: showHighlights, onFinished: onFinished)
@@ -256,6 +230,5 @@ extension NnSwiftUIKit.PanGestureSwipDirection {
         }
     }
 }
-#endif
 
 public protocol DisplayableError: NnDisplayableError {}

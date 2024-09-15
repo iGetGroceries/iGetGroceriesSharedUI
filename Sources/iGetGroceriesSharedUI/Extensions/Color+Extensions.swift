@@ -17,10 +17,6 @@ public extension Color {
     }
     
     static var secondaryBackground: Color {
-        #if canImport(UIKit)
         return Color(uiColor: .secondarySystemBackground)
-        #else
-        return Color.secondary
-        #endif
     }
 }

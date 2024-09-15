@@ -32,10 +32,8 @@ public struct SearchBarView: View {
                 .submitLabel(.done)
                 .focused($isSearching)
                 .autocorrectionDisabled(true)
-            #if canImport(UIKit)
                 .keyboardType(.alphabet)
                 .textInputAutocapitalization(.never)
-            #endif
                 .overlay(alignment: .trailing) {
                     Image(systemName: "xmark.circle.fill")
                         .padding()

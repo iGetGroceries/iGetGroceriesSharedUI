@@ -9,7 +9,6 @@ import SwiftUI
 
 struct NavigationBarViewModifier: ViewModifier {
     init(tint: Color, backgroundColor: Color) {
-        #if canImport(UIKit)
         let coloredAppearance = UINavigationBarAppearance()
 
         coloredAppearance.configureWithOpaqueBackground()
@@ -21,7 +20,6 @@ struct NavigationBarViewModifier: ViewModifier {
         UINavigationBar.appearance().compactAppearance = coloredAppearance
         UINavigationBar.appearance().scrollEdgeAppearance = coloredAppearance
         UINavigationBar.appearance().tintColor = .init(tint)
-        #endif
     }
     
     func body(content: Content) -> some View {

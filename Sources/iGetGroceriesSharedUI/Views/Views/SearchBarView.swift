@@ -6,19 +6,22 @@
 //
 
 import SwiftUI
+import NnSwiftUIKit
 
 public struct SearchBarView: View {
     @Binding var searchText: String
     @FocusState var isSearching: Bool
     
     let prompt: String
+    let accessibilityId: String?
     
     private func clearSearch() {
         searchText = ""
     }
     
-    public init(_ prompt: String, searchText: Binding<String>, isSearching: FocusState<Bool>) {
+    public init(_ prompt: String, searchText: Binding<String>, isSearching: FocusState<Bool>, accessibilityId: String? = nil) {
         self.prompt = prompt
+        self.accessibilityId = accessibilityId
         self._searchText = searchText
         self._isSearching = isSearching
     }
@@ -27,6 +30,7 @@ public struct SearchBarView: View {
         HStack {
             Image(systemName: "magnifyingglass")
                 .foregroundColor(isSearching ? .darkGreen : .primary)
+            
             TextField(prompt, text: $searchText)
                 .tint(.darkGreen)
                 .submitLabel(.done)
@@ -34,6 +38,7 @@ public struct SearchBarView: View {
                 .autocorrectionDisabled(true)
                 .keyboardType(.alphabet)
                 .textInputAutocapitalization(.never)
+                .nnSetAccessibiltyId(accessibilityId)
                 .overlay(alignment: .trailing) {
                     Image(systemName: "xmark.circle.fill")
                         .padding()

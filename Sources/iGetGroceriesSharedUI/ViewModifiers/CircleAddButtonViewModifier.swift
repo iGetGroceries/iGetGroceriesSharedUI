@@ -12,6 +12,7 @@ struct CircleAddButtonViewModifier: ViewModifier {
     @Binding var isShowing: Bool
     
     let buttonSize: CGFloat
+    let accessibilityId: String?
     let action: () throws -> Void
     
     func body(content: Content) -> some View {
@@ -28,13 +29,14 @@ struct CircleAddButtonViewModifier: ViewModifier {
                     .shadow(color: .primary, radius: 7)
                     .padding()
                     .transition(.move(edge: .bottom))
+                    .nnSetAccessibiltyId(accessibilityId)
                 }
             }
     }
 }
 
 public extension View {
-    func withCircleAddButton(isShowing: Binding<Bool>, action: @escaping () throws -> Void) -> some View {
-        modifier(CircleAddButtonViewModifier(isShowing: isShowing, buttonSize: getHeightPercent(8), action: action))
+    func withCircleAddButton(isShowing: Binding<Bool>, accessibilityId: String? = nil, action: @escaping () throws -> Void) -> some View {
+        modifier(CircleAddButtonViewModifier(isShowing: isShowing, buttonSize: getHeightPercent(8), accessibilityId: accessibilityId, action: action))
     }
 }

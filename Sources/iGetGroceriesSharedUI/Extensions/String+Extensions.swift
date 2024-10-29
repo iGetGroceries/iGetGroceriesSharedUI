@@ -5,12 +5,11 @@
 //  Created by Nikolai Nobadi on 9/15/24.
 //
 
+/// String extension providing custom font names.
 public extension String {
-    static var boldFont: String {
-        return "MarkerFelt-Thin"
-    }
+    /// Returns the name of a bold font.
+    static var boldFont: String { "MarkerFelt-Thin" }
     
-    static var detailFont: String {
-        return "HelveticaNeue"
-    }
+    /// Returns the name of a font for detail text.
+    static var detailFont: String { "HelveticaNeue" }
 }

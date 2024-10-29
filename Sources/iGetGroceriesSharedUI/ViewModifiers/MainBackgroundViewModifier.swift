@@ -18,6 +18,9 @@ struct MainBackgroundViewModifier: ViewModifier {
 }
 
 public extension View {
+    /// Applies a light green background with full frame size and specified alignment.
+    /// - Parameter alignment: The alignment of the content within the view. Default is `.top`.
+    /// - Returns: A view with a light green background and specified alignment.
     func mainBackground(alignment: Alignment = .top) -> some View {
         modifier(MainBackgroundViewModifier(alignment: alignment))
     }

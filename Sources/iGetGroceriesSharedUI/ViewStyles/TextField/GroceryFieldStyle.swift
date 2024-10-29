@@ -30,6 +30,11 @@ public struct GroceryFieldStyle: TextFieldStyle {
 }
 
 public extension TextFieldStyle where Self == GroceryFieldStyle {
+    /// Provides a custom grocery-themed `TextFieldStyle` with specified text alignment and keyboard type.
+    /// - Parameters:
+    ///   - alignment: The alignment of text within the text field. Default is `.center`.
+    ///   - keyboardType: The type of keyboard to display when the text field is active. Default is `.alphabet`.
+    /// - Returns: A `GroceryFieldStyle` with the specified alignment and keyboard settings.
     static func groceryFieldStyle(alignment: TextAlignment = .center, keyboardType: UIKeyboardType = .alphabet) -> GroceryFieldStyle {
         return .init(alignment: alignment, keyboardType: keyboardType)
     }

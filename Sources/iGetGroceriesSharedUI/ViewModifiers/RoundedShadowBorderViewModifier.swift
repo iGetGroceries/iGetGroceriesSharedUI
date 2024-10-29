@@ -30,6 +30,14 @@ struct RoundedShadowBorderViewModifier: ViewModifier {
 }
 
 public extension View {
+    /// Adds a rounded shadow border with customizable background and shadow colors, corner radius, and shadow radius.
+    /// - Parameters:
+    ///   - backgroundColor: The color of the background within the rounded border. Default is `.lightGreen`.
+    ///   - shadowColor: The color of the shadow around the border. Default is `.primary`.
+    ///   - cornerRadius: The corner radius of the border. Default is `10`.
+    ///   - shadowRadius: The radius of the shadow. Default is `2`.
+    ///   - isActive: A Boolean value that determines if the border is applied. Default is `true`.
+    /// - Returns: A view with a rounded shadow border applied.
     func withRoundedShadowBorder(backgroundColor: Color = .lightGreen, shadowColor: Color = .primary, cornerRadius: CGFloat = 10, shadowRadius: CGFloat = 2, isActive: Bool = true) -> some View {
         self.modifier(RoundedShadowBorderViewModifier(backgroundColor: backgroundColor, shadowColor: shadowColor, cornerRadius: cornerRadius, shadowRadius: shadowRadius, isActive: isActive))
     }

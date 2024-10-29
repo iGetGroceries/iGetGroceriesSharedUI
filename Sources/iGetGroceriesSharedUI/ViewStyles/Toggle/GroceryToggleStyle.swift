@@ -38,6 +38,12 @@ public struct GroceryToggleStyle: ToggleStyle {
 }
 
 public extension ToggleStyle where Self == GroceryToggleStyle {
+    /// Provides a custom grocery-themed `ToggleStyle` with specified boldness, on color, and off color.
+    /// - Parameters:
+    ///   - boldLabel: A Boolean value indicating whether the label text should be bold. Default is `false`.
+    ///   - onColor: The color displayed when the toggle is on. Default is `.darkGreen`.
+    ///   - offColor: The color displayed when the toggle is off. Default is `.gray`.
+    /// - Returns: A `GroceryToggleStyle` configured with the specified properties.
     static func groceryToggleStyle(boldLabel: Bool = false, onColor: Color = .darkGreen, offColor: Color = .gray) -> GroceryToggleStyle {
         return .init(boldLabel: boldLabel, onColor: onColor, offColor: offColor)
     }

@@ -21,6 +21,11 @@ public struct UnderlineButtonStyle: ButtonStyle {
 }
 
 public extension ButtonStyle where Self == UnderlineButtonStyle {
+    /// Provides an underlined button style with specified font style and text color.
+    /// - Parameters:
+    ///   - style: The font style to apply to the button text. Default is `.caption`.
+    ///   - textColor: The color of the button text. Default is `.darkGreen`.
+    /// - Returns: An `UnderlineButtonStyle` with the specified font and text color.
     static func underlineButtonStyle(_ style: Font.TextStyle = .caption, textColor: Color = .darkGreen) -> UnderlineButtonStyle {
         return .init(style: style, textColor: textColor)
     }

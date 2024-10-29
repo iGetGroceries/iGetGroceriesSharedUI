@@ -33,6 +33,11 @@ struct EmptyListViewModifier: ViewModifier {
 }
 
 public extension View {
+    /// Displays an empty list view when the list is empty, with a title and message based on the specified list type.
+    /// - Parameters:
+    ///   - listEmpty: A Boolean value indicating if the list is empty.
+    ///   - listType: An `EmptyListType` defining the title and message for the empty list view.
+    /// - Returns: A view that displays an empty list message when the list is empty.
     func withEmptyListView(listEmpty: Bool, listType: EmptyListType) -> some View {
         modifier(EmptyListViewModifier(listEmpty: listEmpty, listType: listType))
     }

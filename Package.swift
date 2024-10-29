@@ -15,7 +15,7 @@ let package = Package(
             targets: ["iGetGroceriesSharedUI"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/nikolainobadi/NnSwiftUIKit", from: "1.0.0")
+        .package(url: "https://github.com/nikolainobadi/NnSwiftUIKit", from: "2.0.0")
     ],
     targets: [
         .target(

@@ -11,10 +11,10 @@ import NnSwiftUIKit
 public struct TryButton<Label>: View where Label: View {
     @ViewBuilder var label: () -> Label
     
-    let role: NnButtonRole?
+    let role: ButtonRole?
     let action: () throws -> Void
     
-    public init(action: @escaping () throws -> Void, role: NnButtonRole? = nil, label: @escaping () -> Label) {
+    public init(action: @escaping () throws -> Void, role: ButtonRole? = nil, label: @escaping () -> Label) {
         self.action = action
         self.label = label
         self.role = role
@@ -28,7 +28,7 @@ public struct TryButton<Label>: View where Label: View {
 
 // MARK: - Helper Init
 public extension TryButton where Label == Text {
-    init<S>(_ title: S, role: NnButtonRole? = nil, action: @escaping () throws -> Void) where S: StringProtocol {
+    init<S>(_ title: S, role: ButtonRole? = nil, action: @escaping () throws -> Void) where S: StringProtocol {
         self.init(action: action, role: role, label: { Text(title) })
     }
 }

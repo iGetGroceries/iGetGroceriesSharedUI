@@ -169,11 +169,10 @@ public extension View {
 
 // MARK: - Showcase
 public extension View {
-    func showingAlert(_ title: String, message: String, buttonText: String = "Okay", isPresented: Binding<Bool>, finished: (() -> Void)? = nil) -> some View {
-        nnShowingAlert(title, message: message, buttonText: buttonText, isPresented: isPresented, finished: finished)
+    func showingAlert(_ title: String, message: String, cancelInfo: AccessibleItemInfo = .init(prompt: "Okay"), isPresented: Binding<Bool>, finished: (() -> Void)? = nil) -> some View {
+        nnShowingAlert(title, message: message, cancelInfo: cancelInfo, isPresented: isPresented, finished: finished)
     }
 }
-
 
 public extension View {
     func onShake(isActive: Bool, action: @escaping () -> Void) -> some View {
@@ -220,7 +219,7 @@ public enum PanGestureSwipeDirection {
 }
 
 
-extension NnSwiftUIKit.PanGestureSwipDirection {
+extension NnSwiftUIKit.PanGestureSwipeDirection {
     func toDirection() -> PanGestureSwipeDirection {
         switch self {
         case .up:

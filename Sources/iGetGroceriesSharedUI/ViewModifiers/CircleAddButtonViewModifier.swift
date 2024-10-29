@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import NnSwiftUIKit
 
 struct CircleAddButtonViewModifier: ViewModifier {
     @Binding var isShowing: Bool
@@ -29,7 +28,7 @@ struct CircleAddButtonViewModifier: ViewModifier {
                     .shadow(color: .primary, radius: 7)
                     .padding()
                     .transition(.move(edge: .bottom))
-                    .nnSetAccessibiltyId(accessibilityId)
+                    .setAccessibiltyId(accessibilityId)
                 }
             }
     }

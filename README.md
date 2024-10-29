@@ -1,5 +1,5 @@
 
-# NnSwiftUIKit Module - iGetGroceries
+# SharedUI Module - iGetGroceries
 
 A SwiftUI-based toolkit for enhancing UI in the iGetGroceries app, providing components for color management, custom UI elements, and utility extensions.
 

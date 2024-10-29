@@ -34,5 +34,3 @@ public extension TextFieldStyle where Self == GroceryFieldStyle {
         return .init(alignment: alignment, keyboardType: keyboardType)
     }
 }
-
-

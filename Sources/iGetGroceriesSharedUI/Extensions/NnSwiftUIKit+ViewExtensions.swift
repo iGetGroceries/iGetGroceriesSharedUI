@@ -99,6 +99,14 @@ public extension View {
     func asNavLink<D: Hashable>(_ data: D, isActive: Bool = true) -> some View {
         nnAsNavLink(data, isActive: isActive)
     }
+    
+    func showingConditionalView<V: View>(isShowing: Bool, @ViewBuilder conditionalView: @escaping () -> V) -> some View {
+        nnShowingConditionalView(isShowing: isShowing, conditionalView: conditionalView)
+    }
+    
+    func showingViewWithOptional<I, V: View>(_ optional: I?, @ViewBuilder conditionalView: @escaping (I) -> V) -> some View {
+        nnShowingViewWithOptional(optional, conditionalView: conditionalView)
+    }
 }
 
 
@@ -147,6 +155,10 @@ public extension View {
 
     func withNavBarButton(placement: ToolbarItemPlacement? = nil, buttonContent: NavBarButtonContent, font: Font = .title2, textColor: Color = .primary, isActive: Bool = true, accessibilityId: String? = nil, action: @escaping () -> Void) -> some View {
         nnWithNavBarButton(placement: placement, buttonContent: buttonContent, font: font, textColor: textColor, isActive: isActive, accessibilityId: accessibilityId, action: action)
+    }
+    
+    func trackingItemChanges<I: Equatable>(item: I, itemDidChange: Binding<Bool>) -> some View {
+        nnTrackingItemChanges(item: item, itemDidChange: itemDidChange)
     }
 }
 

@@ -18,6 +18,7 @@ public struct GroceryToggleStyle: ToggleStyle {
                 .bold(boldLabel)
                 
             Spacer()
+            
             RoundedRectangle(cornerRadius: 16, style: .circular)
                 .fill(configuration.isOn ? onColor : offColor)
                 .frame(width: 50, height: 30)
@@ -41,6 +42,3 @@ public extension ToggleStyle where Self == GroceryToggleStyle {
         return .init(boldLabel: boldLabel, onColor: onColor, offColor: offColor)
     }
 }
-
-
-
